@@ -399,8 +399,8 @@ When troubleshooting:
 
 # Examples
 
-- inet 172.27.145.12  -- (IPv4)
-- inet6 fe80::215:5dff -- (IPv6)
+- inet `172.27.145.12`  -- **(IPv4)**
+- inet6 `fe80::215:5dff` -- **(IPv6)**
 
 ## Key Difference
 IPv4 has limited addresses and uses NAT to cope, while IPv6 was introduced to solve address exhaustion with a much larger address space.
