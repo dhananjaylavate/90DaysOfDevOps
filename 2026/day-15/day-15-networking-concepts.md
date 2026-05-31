@@ -92,9 +92,9 @@ It ensures that data packets find the correct destination, similar to a physical
 **IPv4 Structure**
 
 - IPv4 uses a 32-bit format, which creates roughly 4.3 billion unique addresses.
-- The Format: Written in "dotted-decimal" notation (e.g., 192.168.1.1).
+- The Format: Written in "dotted-decimal" notation `(e.g., 192.168.1.1)`.
 - The Blocks: Divided into four 8-bit numbers called octets.
-- The Range: Each octet ranges from 0 to 255 (e.g., 0.0.0.0 to 255.255.255.255).
+- The Range: Each octet ranges from 0 to 255 `(e.g., 0.0.0.0 to 255.255.255.255)`.
 - The Parts: Contains a Network ID (identifies the specific network) and a Host ID (identifies the specific device on that network).
 
 **Public vs. Private IP Addresses**
