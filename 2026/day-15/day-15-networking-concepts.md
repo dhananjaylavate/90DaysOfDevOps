@@ -1,7 +1,7 @@
 ## Day 15 - Understand how DNS resolves names to IPs
 
-The Domain Name System (DNS) is the "phonebook of the Internet". 
-It translates human-readable domain names (e.g., google.com) into machine-readable IP addresses (e.g., 192.0.2.1). 
+The Domain Name System (**DNS**) is the "phonebook of the Internet". 
+It translates human-readable domain names (e.g., `google.com`) into machine-readable IP addresses `(e.g., 192.0.2.1)`. 
 
 Computers connect to each other using numbers, so DNS makes browsing the web user-friendly.
 
@@ -78,7 +78,9 @@ google.com.    300    IN    A    142.250.187.14
 
 ## Note
 
-The exact IP address and TTL may vary depending on your location, DNS resolver, and the time the query is executed. Run the command below on your machine and record the actual values from the ANSWER SECTION:
+The exact IP address and TTL may vary depending on your location, DNS resolver, and the time the query is executed. 
+
+Run the command below on your machine and record the actual values from the ANSWER SECTION:
 
 ```bash
 dig google.com
@@ -88,6 +90,7 @@ dig google.com
 ## Task 2.  IP addressing (IPv4, public vs private)
 
 An IP address (Internet Protocol address) is a unique label assigned to every device connected to a network. 
+
 It ensures that data packets find the correct destination, similar to a physical mailing address
 
 **IPv4 Structure**
