@@ -2,6 +2,7 @@
 
 The Domain Name System (DNS) is the "phonebook of the Internet". 
 It translates human-readable domain names (e.g., google.com) into machine-readable IP addresses (e.g., 192.0.2.1). 
+
 Computers connect to each other using numbers, so DNS makes browsing the web user-friendly.
 
 ## Task 1. How DNS Resolves Names to IPs
