@@ -250,12 +250,9 @@ ubuntu@Kartik:~/LinuxForDevOps/day14$ ip addr show
 
 - This command shows: **All network interfaces + their IP addresses on your machine**
 
-1. Loopback Interface (lo) : ```1: lo: <LOOPBACK,UP,LOWER_UP>```
-
-2. Ethernet / Network Interface (eth0) : ```2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP>``` This is your real network connection 
-
-```ip addr show``` reveals how your machine identifies itself locally and on the network — including loopback (self), private IP (network), and MAC address (hardware identity).
-
+- Loopback Interface (lo) : ```1: lo: <LOOPBACK,UP,LOWER_UP>```
+- Ethernet / Network Interface (eth0) : ```2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP>``` This is your real network connection
+- ```ip addr show``` reveals how your machine identifies itself locally and on the network — including loopback (self), private IP (network), and MAC address (hardware identity).
 
 # 2. Reachability
 
@@ -279,14 +276,12 @@ PING google.com (142.251.30.139) 56(84) bytes of data.
 4 packets transmitted, 4 received, 0% packet loss, time 3018ms
 rtt min/avg/max/mdev = 17.764/33.900/74.587/23.550 ms
 ```
-
 **Observation**
 - You sent 4 packets & You received all 4 back
 - 0% packet loss
 - Avg Latency : 33.900 
 - Average round-trip time is ~34 ms
 - So network is stable (no loss)
-
 
 # 3. Path Analysis
 
@@ -295,7 +290,6 @@ rtt min/avg/max/mdev = 17.764/33.900/74.587/23.550 ms
 ```bash
 traceroute google.com
 ```
-
 **Output**
 
 ```text
@@ -319,10 +313,17 @@ traceroute to google.com (142.250.151.101), 30 hops max, 60 byte packets
 16  * * *
 17  * * st-in-f101.1e100.net (142.250.151.101)  21.054 ms
 ```
-
 **Observation**
+
 - All the hops (routers) your packet passes through to reach Google.
 - Each line = one router in the path.
+
+🧭 Total hops observed : *17* : ✔ (From hop 1 → hop 17 where Google server responded)
+⚠️ Timeouts observed: Hop 3, 5, 8, 11, 12, 13, 14, 15, 16
+
+> 🧠 Meaning of these timeouts : > Routers are not replying to ICMP traceroute packets > NOT a failure > Very common in ISP + Google backbone networks
+
+**🧠 Your Full Route**
 
 ```
 [You]
@@ -353,3 +354,48 @@ Google Server ✅
 **Key Takeaway**
 
 ```traceroute``` shows the internet path, not just the destination — revealing how your request travels through routers, ISPs, and cloud backbone networks before reaching Google.
+
+# 4. Listening Ports
+
+**It shows what your machine is actually “listening” to.**
+
+**Command**
+
+``ss -tulpn``
+
+🔍 What ss -tulpn means
+
+ss = socket statistics
+
+**It shows:**
+- Open ports
+- Listening services
+- TCP/UDP connections
+- Which processes are using them
+
+```text
+
+ubuntu@Kartik:~/LinuxForDevOps/day14$ ss -tulpn
+Netid          State           Recv-Q          Send-Q                    Local Address:Port                     Peer Address:Port          Process
+udp            UNCONN          0               0                            127.0.0.54:53                            0.0.0.0:*
+udp            UNCONN          0               0                         127.0.0.53%lo:53                            0.0.0.0:*
+udp            UNCONN          0               0                        10.255.255.254:53                            0.0.0.0:*
+udp            UNCONN          0               0                             127.0.0.1:323                           0.0.0.0:*
+udp            UNCONN          0               0                                 [::1]:323                              [::]:*
+tcp            LISTEN          0               4096                      127.0.0.53%lo:53                            0.0.0.0:*
+tcp            LISTEN          0               4096                         127.0.0.54:53                            0.0.0.0:*
+tcp            LISTEN          0               1000                     10.255.255.254:53                            0.0.0.0:*
+tcp            LISTEN          0               511                             0.0.0.0:80                            0.0.0.0:*
+tcp            LISTEN          0               511                                [::]:80                               [::]:*
+
+```
+
+**🧠 Your system overview**
+
+**You currently have:**
+- DNS services running (port 53)
+- Local system resolver active
+- Web server listening on port 80
+- Loopback + private network bindings
+
+
