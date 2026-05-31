@@ -202,6 +202,7 @@ The OSI model helps us understand:
 # 🚀 Hands-on Checklist
 
 # 1. Identity 
+```markdown
 
 **Command** 
 
