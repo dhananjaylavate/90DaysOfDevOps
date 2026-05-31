@@ -1,13 +1,27 @@
 # Day 14 - Networking Basics and OSI Layer
 
-## 1. What a Network Actually Is?
+# 🌐 1. What a Network Actually Is
 
-- A network is just:
-- Two or more devices
-- Connected via cables, Wi-Fi, or virtual links
-- Exchanging data in packets
+A network is simply:
 
-- That data is broken into small chunks called packets, which travel independently and get reassembled at the destination.
+> 🧠 A group of devices connected so they can talk to each other.
+
+---
+
+## 📌 Examples:
+
+- Your laptop ↔ router  
+- Your phone ↔ Wi-Fi  
+- Servers ↔ other servers  
+- Your device ↔ Google  
+
+---
+
+## 🔗 They can be connected using:
+
+- 🔌 Cables (Ethernet)  
+- 📶 Wi-Fi (wireless signals)  
+- ☁️ Virtual links (cloud networks like AWS)  
 
 ---
 
