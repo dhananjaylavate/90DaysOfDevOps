@@ -10,14 +10,14 @@ When you type a web address into your browser, a highly structured sequence of e
 
 **The Short DNS Flow**
 
-📥 Request: You type a URL `google.com`
-🔍 Cache: Your device checks local memory first.
-🔄 Resolver: If missing, your ISP server takes over.
-🌐 Root: The resolver asks Root where the TLD is.
-🏷️ TLD: The resolver asks .com (or similar) where the domain lives.
-🔑 Authoritative: The domain's nameserver gives the final IP.
-🖥️ Connect: The resolver hands the IP to your browser.
-🌐 Load: The website opens.
+- 📥 Request: You type a URL `google.com`
+- 🔍 Cache: Your device checks local memory first.
+- 🔄 Resolver: If missing, your ISP server takes over.
+- 🌐 Root: The resolver asks Root where the TLD is.
+- 🏷️ TLD: The resolver asks .com (or similar) where the domain lives.
+- 🔑 Authoritative: The domain's nameserver gives the final IP.
+- 🖥️ Connect: The resolver hands the IP to your browser.
+- 🌐 Load: The website opens.
 
 ---
 
@@ -89,7 +89,7 @@ dig google.com
 An IP address (Internet Protocol address) is a unique label assigned to every device connected to a network. 
 It ensures that data packets find the correct destination, similar to a physical mailing address
 
-**IPv4 Structure **
+**IPv4 Structure**
 
 - IPv4 uses a 32-bit format, which creates roughly 4.3 billion unique addresses.
 - The Format: Written in "dotted-decimal" notation (e.g., 192.168.1.1).
@@ -131,9 +131,6 @@ From the `lo` (loopback) interface:
 inet 127.0.0.1/8
 inet 10.255.255.254/32
 ```
-
----
-
 ## Analysis
 
 ### Primary Private IP (eth0)
@@ -141,13 +138,9 @@ inet 10.255.255.254/32
 - This is your machine’s main network IP
 - It is used for communication within your private network
 
----
-
 ### Loopback Interface (lo)
 - `127.0.0.1` → Standard loopback address (your own machine)
 - `10.255.255.254` → Also a private IP assigned to loopback in your environment (virtual routing/internal setup)
-
----
 
 ## Are these Private IPs?
 
@@ -156,8 +149,6 @@ Yes — all of the following are private/internal:
 - `172.27.145.12` → Private IP (belongs to 172.16.0.0 – 172.31.255.255 range)
 - `10.255.255.254` → Private IP (10.0.0.0 – 10.255.255.255 range)
 - `127.0.0.1` → Loopback (special internal testing address)
-
----
 
 ## Key Observation
 
@@ -169,8 +160,6 @@ Your system is running in a **virtualized or cloud-like environment**, which is 
   - Docker networks
   - Cloud VMs (AWS/Azure internal networking)
 
----
-
 ## Final Summary
 
 - Your active interface: `eth0`
@@ -181,18 +170,14 @@ Your system is running in a **virtualized or cloud-like environment**, which is 
 ---
 
 # Task 3: CIDR & Subnetting
-
----
-
+    
 ## What does `/24` mean in `192.168.1.0/24`?
 
 `/24` means that the first **24 bits are fixed as the network portion**, and the remaining **8 bits are available for host addresses**.
 
 - IPv4 address = 32 bits total
 - `/24` → 24 bits network + 8 bits host
-- This defines a subnet with 256 total IP addresses
-
----
+- This defines a subnet with **256** total IP addresses
 
 ## Usable Hosts in Different Subnets
 
@@ -201,19 +186,13 @@ Your system is running in a **virtualized or cloud-like environment**, which is 
 - Usable hosts: **254**
   - (2 reserved: network address + broadcast address)
 
----
-
 ### /16
 - Total IPs: 65,536
 - Usable hosts: **65,534**
 
----
-
 ### /28
 - Total IPs: 16
 - Usable hosts: **14**
-
----
 
 ## Why Do We Subnet?
 
@@ -237,17 +216,12 @@ Subnetting is used to divide a large network into smaller, manageable networks.
 | /16  | 255.255.0.0         | 65,536     | 65,534       |
 | /28  | 255.255.255.240     | 16         | 14           |
 
----
-
 ## Key Formula
 
 ```
 Total IPs = 2^(32 - CIDR)
 Usable Hosts = Total IPs - 2
 ```
-
----
-
 ## Example Breakdown
 
 ### /28 example:
