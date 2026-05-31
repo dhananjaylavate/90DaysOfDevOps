@@ -201,16 +201,17 @@ The OSI model helps us understand:
 
 # 🚀 Hands-on Checklist
 
-1. Identity Command 
+# 1. Identity 
 
-> hostname -I
+**Command** 
 
-- Output
+```bash hostname -I
+
+**Output**
 
 ubuntu@Kartik:~/LinuxForDevOps/day14$ hostname -I
 172.27.145.12
 
-- Observation
-
+**Observation**
 - System IP address identified successfully.
 - Used to verify local network configuration.
