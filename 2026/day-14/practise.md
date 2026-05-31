@@ -467,3 +467,216 @@ Because Google uses:
 ⚡ High availability : If one server fails, others respond
 
 👉 This is why Google never goes down easily
+
+# 6. HTTP Check
+
+```curl -I https://google.com```
+
+🌐 What this command does
+
+```curl -I = send HTTP HEAD request (headers only)```
+
+**You are asking: Give me only metadata about google.com, HEADER DETAILS Only not the full page.**
+
+**Output**
+
+```
+ubuntu@Kartik:~/LinuxForDevOps/day14$ curl -I https://google.com
+HTTP/2 301
+location: https://www.google.com/
+content-type: text/html; charset=UTF-8
+content-security-policy-report-only: object-src 'none';base-uri 'self';script-src 'nonce-KIi4ninNsWjFZ_OPAIpAIw' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+date: Sun, 31 May 2026 11:51:42 GMT
+expires: Tue, 30 Jun 2026 11:51:42 GMT
+cache-control: public, max-age=2592000
+server: gws
+content-length: 220
+x-xss-protection: 0
+x-frame-options: SAMEORIGIN
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+```
+
+**🔐 1. Protocol Used**
+
+```HTTP/2 301```
+
+🧠 Meaning:
+
+- HTTP/2 → modern, multiplexed web protocol
+- 301 → Permanent Redirect
+
+# 7. Connections Snapshot
+
+**Command**
+
+```netstat -an | head```
+
+```
+netstat = network statistics
+-a = all connections
+-n = numeric (no DNS resolution)
+```
+
+**netstat shows your machine is running DNS resolver services on port 53 and a web server listening on port 80 across IPv4 and IPv6 interfaces.**
+
+**Output**
+
+**This output is basically a snapshot of all active network sockets on your machine**
+
+```
+ubuntu@Kartik:~/LinuxForDevOps/day14$ netstat -an | head
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN
+tcp        0      0 10.255.255.254:53       0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.1:50638         127.0.0.1:80            ESTABLISHED
+tcp        0      0 127.0.0.1:50650         127.0.0.1:80            ESTABLISHED
+tcp        0      0 127.0.0.1:80            127.0.0.1:50638         ESTABLISHED
+tcp        0      0 127.0.0.1:80            127.0.0.1:50650         ESTABLISHED
+
+```
+1. ESTABLISHED connections: 4
+2. LISTEN connections: 4
+
+---
+
+# 8. Mini Task: Port Probe & Interpret
+
+**Task 1 : Identify one listening port from ss -tulpn (e.g., SSH on 22 or a local web app).**
+
+```
+ubuntu@Kartik:~/LinuxForDevOps/day14$ ss -tulpn
+Netid          State           Recv-Q          Send-Q                    Local Address:Port                     Peer Address:Port          Process
+udp            UNCONN          0               0                            127.0.0.54:53                            0.0.0.0:*
+udp            UNCONN          0               0                         127.0.0.53%lo:53                            0.0.0.0:*
+udp            UNCONN          0               0                        10.255.255.254:53                            0.0.0.0:*
+udp            UNCONN          0               0                             127.0.0.1:323                           0.0.0.0:*
+udp            UNCONN          0               0                                 [::1]:323                              [::]:*
+tcp            LISTEN          0               4096                      127.0.0.53%lo:53                            0.0.0.0:*
+tcp            LISTEN          0               4096                         127.0.0.54:53                            0.0.0.0:*
+tcp            LISTEN          0               1000                     10.255.255.254:53                            0.0.0.0:*
+tcp            LISTEN          0               511                             0.0.0.0:80                            0.0.0.0:*
+tcp            LISTEN          0               511                                [::]:80                               [::]:*
+```
+
+**Listening Service Identified**
+
+- Service: DNS Resolver (systemd-resolved) + Web Server
+
+- Ports:
+
+1. Port 53 → DNS infrastructure (critical for internet access)
+2. Port 80 → Web traffic (HTTP server)
+
+**Task 2 : From the same machine, test it: ```nc -zv localhost``` <port> (or curl -I http://localhost:<port>).**
+
+**Command**
+
+```nc -zv localhost 80```
+
+**Output**
+
+```
+ubuntu@Kartik:~/LinuxForDevOps/day14$ nc -zv localhost 80
+Connection to localhost (127.0.0.1) 80 port [tcp/http] succeeded!
+```
+
+**OR**
+
+**Command**
+
+```curl -I http://localhost:80```
+
+**Output**
+
+```ubuntu@Kartik:~/LinuxForDevOps/day14$ curl -I http://localhost:80
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 31 May 2026 12:17:18 GMT
+Content-Type: text/html
+Content-Length: 615
+Last-Modified: Thu, 21 May 2026 06:26:26 GMT
+Connection: keep-alive
+ETag: "6a0ea592-267"
+Accept-Ranges: bytes
+```
+
+**Interpretation**
+
+Reachable: Yes / No
+If not reachable, next checks:
+Verify service status (systemctl status <service>)
+Check firewall rules (ufw status, iptables -L)
+Review application logs
+
+
+# 🧠 Networking Reflection (DevOps Troubleshooting Guide)
+
+---
+
+# ⚡ 1. Which command gives you the fastest signal when something is broken?
+
+## 📡 `ping`
+- Quickly confirms basic network connectivity
+- Detects packet loss and latency issues
+
+👉 Use when:
+- You suspect network is down
+- You want quick connectivity check
+
+---
+
+## 🌐 `curl -I`
+- Checks if a web service is responding
+- Verifies HTTP/HTTPS status without downloading full content
+
+👉 Use when:
+- Website is slow or not loading
+- You want to check server availability
+
+---
+
+# 🧩 2. What layer would you inspect if DNS fails?
+
+## 🌍 Primary Layer:
+- **Application Layer (DNS Service)**
+
+---
+
+## 🔍 Next checks:
+- Transport Layer → UDP/TCP port 53
+- Internet Layer → IP connectivity
+
+👉 Meaning:
+Start from DNS resolver, then move downward in OSI stack if needed.
+
+---
+
+# 🚨 3. What layer would you inspect if HTTP 500 appears?
+
+## 🌐 Layer:
+- **Application Layer**
+
+---
+
+## 🔍 What to check:
+- Web server logs (nginx / apache)
+- Backend application logs
+- Database connectivity issues
+- API/service dependencies
+
+👉 Meaning:
+HTTP 500 = server-side failure, not network issue
+
+---
+
+# 🛠️ 4. Two follow-up checks during a real incident
+
+---
+
+## 🔎 Check active listening services
+
+```bash id="cmd1"
+ss -tulpn
