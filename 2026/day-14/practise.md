@@ -202,18 +202,19 @@ The OSI model helps us understand:
 # 🚀 Hands-on Checklist
 
 # 1. Identity 
-```markdown
 
-**Command** 
+**Command**
 
-```bash 
-
+```bash
 hostname -I
+```
 
 **Output**
 
+```text
 ubuntu@Kartik:~/LinuxForDevOps/day14$ hostname -I
 172.27.145.12
+```
 
 **Observation**
 - System IP address identified successfully.
