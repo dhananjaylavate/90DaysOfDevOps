@@ -360,3 +360,39 @@ When troubleshooting:
 - Start with **network reachability (IP layer)**
 - Then check **port/service availability (Transport layer)**
 - Finally verify **application/service health (Application layer)**
+
+---
+
+# IPv4 vs IPv6
+
+## IPv4
+- 32-bit addressing system
+- Written in decimal format (e.g. `192.168.1.10`)
+- Supports ~4.3 billion addresses
+- Most widely used in current networks
+
+## IPv6
+- 128-bit addressing system
+- Written in hexadecimal format (e.g. `2001:db8::1`)
+- Supports a massive number of addresses
+- Designed to replace IPv4
+- Mostly used in IOT, CDNs, AWS, Google
+
+## Why IPv6 Was Introduced
+
+# IPv4 addresses are running out due to:
+
+- Growth of the internet
+- Mobile devices
+- Cloud infrastructure
+- IoT devices
+
+**IPv6 solves this by providing a massive address space.**
+
+# Examples
+
+- inet 172.27.145.12  -- (IPv4)
+- inet6 fe80::215:5dff -- (IPv6)
+
+## Key Difference
+IPv4 has limited addresses and uses NAT to cope, while IPv6 was introduced to solve address exhaustion with a much larger address space.
