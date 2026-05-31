@@ -321,7 +321,10 @@ traceroute to google.com (142.250.151.101), 30 hops max, 60 byte packets
 🧭 Total hops observed : *17* : ✔ (From hop 1 → hop 17 where Google server responded)
 ⚠️ Timeouts observed: Hop 3, 5, 8, 11, 12, 13, 14, 15, 16
 
-> 🧠 Meaning of these timeouts : > Routers are not replying to ICMP traceroute packets > NOT a failure > Very common in ISP + Google backbone networks
+**🧠 Meaning of these timeouts : **
+- Routers are not replying to ICMP traceroute packets 
+- NOT a failure 
+- Very common in ISP + Google backbone networks
 
 **🧠 Your Full Route**
 
@@ -363,9 +366,9 @@ Google Server ✅
 
 ``ss -tulpn``
 
-🔍 What ss -tulpn means
+🔍 What ```ss -tulpn``` means
 
-ss = socket statistics
+```ss = socket statistics```
 
 **It shows:**
 - Open ports
@@ -398,4 +401,66 @@ tcp            LISTEN          0               511                              
 - Web server listening on port 80
 - Loopback + private network bindings
 
+# 5. Name Resolution
 
+```dig google.com```
+
+**This is a perfect real-world DNS resolution trace**
+
+🌐 What ```dig google.com``` did
+
+**dig = DNS lookup tool**
+
+It asked: **What are the IP addresses for google.com?**
+
+**Output**
+
+```text
+ubuntu@Kartik:~/LinuxForDevOps/day14$ dig google.com
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.5-Ubuntu <<>> google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 11112
+;; flags: qr rd ra; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;google.com.                    IN      A
+
+;; ANSWER SECTION:
+google.com.             63      IN      A       142.251.30.101
+google.com.             63      IN      A       142.251.30.139
+google.com.             63      IN      A       142.251.30.138
+google.com.             63      IN      A       142.251.30.100
+google.com.             63      IN      A       142.251.30.102
+google.com.             63      IN      A       142.251.30.113
+
+;; Query time: 31 msec
+;; SERVER: 10.255.255.254#53(10.255.255.254) (UDP)
+;; WHEN: Sun May 31 12:33:33 BST 2026
+;; MSG SIZE  rcvd: 135
+```
+**🌐 Resolved IPs ^**
+
+```
+142.251.30.101
+142.251.30.139
+142.251.30.138
+142.251.30.100
+142.251.30.102
+142.251.30.113
+```
+
+**🧠 Why multiple IPs?**
+
+Because Google uses:
+
+- 🔥 Load Balancing : Traffic distributed across servers
+
+- 🌍 Geo-routing : You connect to nearest data center
+
+⚡ High availability : If one server fails, others respond
+
+👉 This is why Google never goes down easily
