@@ -424,8 +424,6 @@ Review application logs
 - You suspect network is down
 - You want quick connectivity check
 
----
-
 ## 🌐 `curl -I`
 - Checks if a web service is responding
 - Verifies HTTP/HTTPS status without downloading full content
@@ -441,8 +439,6 @@ Review application logs
 ## 🌍 Primary Layer:
 - **Application Layer (DNS Service)**
 
----
-
 ## 🔍 Next checks:
 - Transport Layer → UDP/TCP port 53
 - Internet Layer → IP connectivity
@@ -457,8 +453,6 @@ Start from DNS resolver, then move downward in OSI stack if needed.
 ## 🌐 Layer:
 - **Application Layer**
 
----
-
 ## 🔍 What to check:
 - Web server logs (nginx / apache)
 - Backend application logs
@@ -472,9 +466,12 @@ HTTP 500 = server-side failure, not network issue
 
 # 🛠️ 4. Two follow-up checks during a real incident
 
----
-
 ## 🔎 Check active listening services
 
 ```bash id="cmd1"
 ss -tulpn
+```
+## 🔎 Verify DNS and application response with:
+
+```dig <domain>```
+```curl -I <url>```

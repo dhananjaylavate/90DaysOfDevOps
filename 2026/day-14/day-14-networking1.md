@@ -6,16 +6,12 @@ A network is simply:
 
 > 🧠 A group of devices connected so they can talk to each other.
 
----
-
 ## 📌 Examples:
 
 - Your laptop ↔ router  
 - Your phone ↔ Wi-Fi  
 - Servers ↔ other servers  
 - Your device ↔ Google  
-
----
 
 ## 🔗 They can be connected using:
 
@@ -43,13 +39,9 @@ A network is simply:
 
 This document explains what happens behind the scenes when you type `www.google.com` in your browser and press Enter, mapped to the **OSI Model (7 Layers)**.
 
----
-
 # 🧠 Scenario Overview
 
 When you open Google, your computer performs multiple networking steps in milliseconds to fetch and display the webpage.
-
----
 
 # 🌐 Step-by-Step OSI Model Breakdown
 
@@ -202,10 +194,6 @@ The OSI model helps us understand:
 - How data travels across networks
 - How different devices communicate
 - How complex networking is broken into simple layers
-
----
-
-
 ---
 
 # 💡 Key Insight
