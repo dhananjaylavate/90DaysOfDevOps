@@ -178,21 +178,55 @@ Your system is running in a **virtualized or cloud-like environment**, which is 
 - IPv4 address = 32 bits total
 - `/24` → 24 bits network + 8 bits host
 - This defines a subnet with **256** total IP addresses
+# Usable Hosts in Different Subnets (with IP Ranges)
 
-## Usable Hosts in Different Subnets
+---
 
-### /24
-- Total IPs: 256
-- Usable hosts: **254**
-  - (2 reserved: network address + broadcast address)
+## /24 Subnet
 
-### /16
-- Total IPs: 65,536
-- Usable hosts: **65,534**
+- Example Network: `192.168.1.0/24`
+- Subnet Mask: `255.255.255.0`
 
-### /28
-- Total IPs: 16
-- Usable hosts: **14**
+### IP Range
+- Network Address: `192.168.1.0`
+- Usable Hosts: `192.168.1.1 – 192.168.1.254`
+- Broadcast Address: `192.168.1.255`
+
+### Summary
+- Total IPs: 256  
+- Usable Hosts: 254  
+
+---
+
+## /16 Subnet
+
+- Example Network: `10.0.0.0/16`
+- Subnet Mask: `255.255.0.0`
+
+### IP Range
+- Network Address: `10.0.0.0`
+- Usable Hosts: `10.0.0.1 – 10.0.255.254`
+- Broadcast Address: `10.0.255.255`
+
+### Summary
+- Total IPs: 65,536  
+- Usable Hosts: 65,534  
+
+---
+
+## /28 Subnet
+
+- Example Network: `192.168.1.0/28`
+- Subnet Mask: `255.255.255.240`
+
+### IP Range
+- Network Address: `192.168.1.0`
+- Usable Hosts: `192.168.1.1 – 192.168.1.14`
+- Broadcast Address: `192.168.1.15`
+
+### Summary
+- Total IPs: 16  
+- Usable Hosts: 14  
 
 ## Why Do We Subnet?
 
