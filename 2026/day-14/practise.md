@@ -205,7 +205,9 @@ The OSI model helps us understand:
 
 **Command** 
 
-```bash hostname -I
+```bash 
+
+hostname -I
 
 **Output**
 
