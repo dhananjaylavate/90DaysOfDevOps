@@ -20,8 +20,6 @@ When you type a web address into your browser, a highly structured sequence of e
 - 🖥️ Connect: The resolver hands the IP to your browser.
 - 🌐 Load: The website opens.
 
----
-
 ## DNS Record Types
 
 ### A Record
@@ -38,8 +36,6 @@ Specifies the mail servers responsible for receiving emails for a domain.
 
 ### NS Record
 Identifies the authoritative name servers for a domain.
-
----
 
 ## `dig` Command
 
