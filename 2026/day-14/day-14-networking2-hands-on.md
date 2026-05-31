@@ -412,8 +412,6 @@ Review application logs
 
 # 🧠 Networking Reflection (DevOps Troubleshooting Guide)
 
----
-
 # ⚡ 1. Which command gives you the fastest signal when something is broken?
 
 ## 📡 `ping`
