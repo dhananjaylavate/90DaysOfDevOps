@@ -13,8 +13,9 @@
 
 ## 2. The OSI Model (Open Systems Interconnection Model)
 
-- The OSI Model (Open Systems Interconnection Model) is a conceptual framework used to understand how data travels from one computer to another over a network. 
-- It breaks the entire networking process into 7 separate layers, where each layer has a specific job.
+**The OSI Model (Open Systems Interconnection Model) is a conceptual framework used to understand how data travels from one computer to another over a network**
+
+**It breaks the entire networking process into 7 separate layers, where each layer has a specific job.**
 
 - Application
 - Presentation
@@ -318,10 +319,12 @@ traceroute to google.com (142.250.151.101), 30 hops max, 60 byte packets
 - All the hops (routers) your packet passes through to reach Google.
 - Each line = one router in the path.
 
-🧭 Total hops observed : *17* : ✔ (From hop 1 → hop 17 where Google server responded)
-⚠️ Timeouts observed: Hop 3, 5, 8, 11, 12, 13, 14, 15, 16
+**🧭 Total hops observed** : **17** : ```From hop 1 → hop 17``` --> where Google server responded
 
-**🧠 Meaning of these timeouts : **
+**⚠️ Timeouts observed:** ```Hop 3, 5, 8, 11, 12, 13, 14, 15, 16```
+
+**🧠 Meaning of these timeouts :**
+
 - Routers are not replying to ICMP traceroute packets 
 - NOT a failure 
 - Very common in ISP + Google backbone networks
@@ -457,9 +460,9 @@ google.com.             63      IN      A       142.251.30.113
 
 Because Google uses:
 
-- 🔥 Load Balancing : Traffic distributed across servers
+🔥 Load Balancing : Traffic distributed across servers
 
-- 🌍 Geo-routing : You connect to nearest data center
+🌍 Geo-routing : You connect to nearest data center
 
 ⚡ High availability : If one server fails, others respond
 
