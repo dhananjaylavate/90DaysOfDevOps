@@ -531,8 +531,8 @@ git show <commit>                     # Show specific commit details
 - [ ] Share merge vs rebase comparison on LinkedIn
 
 
+- Commit 9
 
-
-Commit 4
+- Commit 4
 
 Happy learning! 🚀
