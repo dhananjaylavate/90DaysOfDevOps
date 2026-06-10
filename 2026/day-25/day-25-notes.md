@@ -1,4 +1,4 @@
-# Day 25 Notes — Git Reset vs Revert & Branching Strategies
+# Day 25 Notes — Git Reset vs Revert & Branching Strategies - Date : 6th - June - 2026
 
 ## ✅ Overview
 Master **undoing mistakes safely** and understand **branching strategies** used by engineering teams at scale.
