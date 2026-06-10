@@ -530,4 +530,9 @@ git show <commit>                     # Show specific commit details
 - [ ] Commit and push to your fork
 - [ ] Share merge vs rebase comparison on LinkedIn
 
+
+
+
+Commit 4
+
 Happy learning! 🚀
