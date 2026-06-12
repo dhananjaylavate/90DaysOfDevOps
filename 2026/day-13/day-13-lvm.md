@@ -127,30 +127,6 @@ tmpfs                      3.9G     0  3.9G   0% /dev/shm
 /dev/mapper/data_vg-data_lv  10G  1.2G  8.3G  13% /mnt/data_lv
 ```
 
-`aws ec2 create-volume` (sample JSON):
-```json
-{
-  "AvailabilityZone": "us-east-1a",
-  "CreateTime": "2026-06-12T10:00:00.000Z",
-  "Size": 10,
-  "SnapshotId": "",
-  "VolumeId": "vol-0abcdef1234567890",
-  "State": "creating",
-  "VolumeType": "gp3"
-}
-```
-
-`aws ec2 attach-volume` (sample JSON):
-```json
-{
-  "State": "attaching",
-  "AttachTime": "2026-06-12T10:01:00.000Z",
-  "InstanceId": "i-0123456789abcdef0",
-  "Device": "/dev/sdf",
-  "VolumeId": "vol-0abcdef1234567890"
-}
-```
-
 `pvcreate` output:
 ```text
 Physical volume "/dev/xvdf" successfully created.
@@ -184,7 +160,7 @@ Logical volume "data_lv" created.
 
 `mkfs.ext4` output (format LV):
 ```text
-mke2fs 1.45.6 (20-Mar-2020)
+mke2fs 1.45.6 (06-Jun-2026)
 Creating filesystem with 2621440 4k blocks and 655360 inodes
 Filesystem UUID: 1234abcd-12ab-34cd-56ef-1234567890ab
 Superblock backups stored on blocks: 
@@ -200,7 +176,7 @@ Writing superblocks and filesystem accounting information: done
 
 `mkfs -t ext4 /dev/xvdh` (format plain device) sample:
 ```text
-mke2fs 1.45.6 (20-Mar-2020)
+mke2fs 1.45.6 (06-Jun-2026)
 Creating filesystem with 2621440 4k blocks and 655360 inodes
 ...
 ```
@@ -211,7 +187,7 @@ $ sudo lvextend -L +5G /dev/data_vg/data_lv
   Extending logical volume data_vg/data_lv to 15.00 GiB
   Logical volume data_vg/data_lv successfully resized.
 $ sudo resize2fs /dev/data_vg/data_lv
-resize2fs 1.45.6 (20-Mar-2020)
+resize2fs 1.45.6 (06-Jun-2026)
 Resizing the filesystem on /dev/data_vg/data_lv to 3932160 (4k) blocks.
 The filesystem on /dev/data_vg/data_lv is now 3932160 blocks long.
 ```
