@@ -7,7 +7,7 @@ Today's goal is to **understand what Docker is and run your first container**. Y
 
 ## What is Docker? 🐳
 
-**Docker** is an open-source software platform that packages applications and all their dependencies into standardized, isolated units called **containers**. Because the container holds everything needed to run the software (code, runtime, libraries, and settings), it ensures the application behaves exactly the same way on any computer.
+**Docker** is a containerization tool, that helps you build and run applications without platform dependencies. Because the container holds everything needed to run the software (os, code, runtime, libraries, and settings), it ensures the application behaves exactly the same way on any computer.
 
 ### Why is Docker Used? 🚀
 
@@ -46,10 +46,13 @@ To use Docker effectively, you'll work with three main building blocks:
 
 | Aspect | Container | Virtual Machine |
 |--------|-----------|-----------------|
-| **OS** | Shares host OS kernel | Full OS inside | 
+| **OS** | Shared resources - host OS kernel | Dedicated resources Full OS inside | 
 | **Startup time** | Milliseconds | Minutes |
+| **HOST** | Docker engine takes the host OS | Host has hypervisor installed |
 | **Size** | ~100 MB | ~10 GB |
-| **Resource use** | Minimal overhead | Significant overhead |
+| **Multiple OS Installed** | NO | Yes |
+| **Storage cost Increased** | No | Yes |
+| **Resource use** | Minimal  | Significant |
 | **Density** | Run 100s of containers | Run few VMs |
 | **Isolation** | Process-level | Full OS isolation |
 
