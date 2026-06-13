@@ -82,9 +82,11 @@ Docker follows a **client-server architecture** with these key components:
 
 1. **Docker Daemon (`dockerd`)** — The server running on the host, manages containers, images, networks, and storage
 2. **Docker Client** — CLI tool you use; sends commands to the daemon
+3. **Docker Host** — The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes.
 3. **Docker Images** — Read-only templates (blueprints) for containers
 4. **Containers** — Running instances of images (like processes)
-5. **Docker Registry** — Remote repository of images (Docker Hub, private registries)
+5. **Docker Registry** — A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use. (Docker Hub, private registries)
+
 
 **Architecture diagram**:
 ```
