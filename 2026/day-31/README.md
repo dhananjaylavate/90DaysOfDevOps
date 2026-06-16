@@ -23,34 +23,6 @@ This is the skill that separates someone who uses Docker from someone who actual
    - Sets a default command to print `"Hello from my custom image!"`
 3. Build the image and tag it `my-ubuntu:v1`
 
-````
-
-PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\my-first-image> docker build -t my-ubuntu:v1 .
-[+] Building 29.5s (7/7) FINISHED                                                                                                                         docker:desktop-linux
- => [internal] load build definition from Dockerfile                                                                                                                      0.4s
- => => transferring dockerfile: 199B                                                                                                                                      0.2s
- => [internal] load metadata for docker.io/library/ubuntu:24.04                                                                                                           3.8s
- => [auth] library/ubuntu:pull token for registry-1.docker.io                                                                                                             0.0s
- => [internal] load .dockerignore                                                                                                                                         0.0s
- => => transferring context: 2B                                                                                                                                           0.0s
- => [1/2] FROM docker.io/library/ubuntu:24.04@sha256:786a8b558f7be160c6c8c4a54f9a57274f3b4fb1491cf65146521ae77ff1dc54                                                     4.9s
- => => resolve docker.io/library/ubuntu:24.04@sha256:786a8b558f7be160c6c8c4a54f9a57274f3b4fb1491cf65146521ae77ff1dc54                                                     0.1s
- => => sha256:cb259a83ac3dd9fea0b394df41df2b298adf0df938fef5999475af18a751c257 29.73MB / 29.73MB                                                                          3.8s
- => => extracting sha256:cb259a83ac3dd9fea0b394df41df2b298adf0df938fef5999475af18a751c257                                                                                 1.0s
- => [2/2] RUN apt-get update     && apt-get install -y curl     && rm -rf /var/lib/apt/lists/*                                                                           18.0s
- => exporting to image                                                                                                                                                    1.5s 
- => => exporting layers                                                                                                                                                   0.9s 
- => => exporting manifest sha256:154d5240a428ac91e3d7bd1b0485fdbd22a4904663cb97320f077c43a0d153a9                                                                         0.0s 
- => => exporting config sha256:3b35499f7fea03cfc3b53487b24372153292ce6ec34d146d117380f37ea6ce08                                                                           0.0s 
- => => exporting attestation manifest sha256:ba011a3687740db22aa3451a931562c15d9465c650a75af18a694f5a32d1fe77                                                             0.0s 
- => => exporting manifest list sha256:6c111630ed19709e7dc5557af535e60ff04df1f9753edc73875b7377dbae9625                                                                    0.0s 
- => => naming to docker.io/library/my-ubuntu:v1                                                                                                                           0.0s
- => => unpacking to docker.io/library/my-ubuntu:v1                                                                                                                        0.2s
-
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/wsg9ilz90kyxbswztz4g6u1td
-PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\my-first-image> 
-
-````
 4. Run a container from your image
 
 **Verify:** The message prints on `docker run`
