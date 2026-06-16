@@ -473,7 +473,7 @@ PS C:\Users\Snehal\devops\90DaysOfDevOps>
 
 ````
 
-![Docker bulk cleanup commands(Docker-Bulk-Cleanup-Commands.png)]
+![Docker bulk cleanup commands](Docker-Bulk-Cleanup-Commands.png)
 
 ## Key Learnings
 
@@ -506,4 +506,4 @@ Take screenshots for the following commands:
 - `docker inspect nginx-demo`
 - `docker system df`
 
-![docker pull images(docker-pull-images.png)]
+![docker pull images](docker-pull-images.png)
