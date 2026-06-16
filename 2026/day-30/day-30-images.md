@@ -204,7 +204,7 @@ PS C:\Users\Snehal\devops\90DaysOfDevOps>
   - `docker inspect nginx-demo`
   - Found the container's IP address, port mappings, and mount information in the inspection output.
 
-  ````
+````
 PS C:\Users\Snehal\devops\90DaysOfDevOps> docker inspect nginx-demo
 [
     {
@@ -447,7 +447,7 @@ PS C:\Users\Snehal\devops\90DaysOfDevOps> docker inspect nginx-demo
 ]
 PS C:\Users\Snehal\devops\90DaysOfDevOps> 
 
-  ````
+````
 
 ## Task 5: Cleanup
 
