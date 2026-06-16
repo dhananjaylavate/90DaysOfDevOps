@@ -44,7 +44,7 @@ PS C:\Users\Snehal>
 
 - Command: `docker image history nginx`
 
-``````````
+````
 PS C:\Users\Snehal> docker image history nginx
 IMAGE          CREATED      CREATED BY                                      SIZE      COMMENT
 608a100c7165   5 days ago   CMD ["nginx" "-g" "daemon off;"]                0B        buildkit.dockerfile.v0
@@ -66,7 +66,8 @@ IMAGE          CREATED      CREATED BY                                      SIZE
 <missing>      5 days ago   LABEL maintainer=NGINX Docker Maintainers <d…   0B        buildkit.dockerfile.v0
 <missing>      6 days ago   # debian.sh --arch 'amd64' out/ 'trixie' '@1…   87.4MB    debuerreotype 0.17
 PS C:\Users\Snehal>
-`````````
+
+````
 
 - Actual output summary:
   - The top layer is the `CMD ["nginx" "-g" "daemon off;"]` instruction and shows `0B`.
