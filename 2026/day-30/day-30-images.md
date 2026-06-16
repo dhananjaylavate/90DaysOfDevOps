@@ -6,14 +6,24 @@ Understand how Docker images and containers work, learn the relationship between
 ## Task 1: Docker Images
 
 - Pulled images:
-  - `nginx`
-  - `ubuntu`
-  - `alpine`
+  - `docker pull nginx`
+  - `docker pull ubuntu`
+  - `docker pull alpine`
 
 - List of images on machine:
-  - `nginx`
-  - `ubuntu`
-  - `alpine`
+````
+PS C:\Users\Snehal> docker images
+                                                                                                                                                     i Info →   U  In Use
+IMAGE           ID             DISK USAGE   CONTENT SIZE   EXTRA
+alpine:latest   f5064d3e5f88         13MB         3.93MB
+nginx:latest    608a100c7165        241MB           66MB
+ubuntu:latest   f3d28607ddd7        160MB         45.3MB    U 
+PS C:\Users\Snehal>
+
+````
+
+
+
   - plus any intermediate or cached images created by Docker
 
 - Size comparison:
