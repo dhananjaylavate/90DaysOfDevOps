@@ -462,6 +462,17 @@ PS C:\Users\Snehal\devops\90DaysOfDevOps>
 - Checked Docker disk usage:
   - `docker system df`
 
+````
+PS C:\Users\Snehal\devops\90DaysOfDevOps> docker system df 
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          3         2         414.1MB   13.01MB (3%)
+Containers      2         1         86.02kB   4.096kB (4%)
+Local Volumes   1         0         0B        0B
+Build Cache     0         0         0B        0B
+PS C:\Users\Snehal\devops\90DaysOfDevOps> 
+
+````
+
 ![Docker bulk cleanup commands(Docker-Bulk-Cleanup-Commands.png)]
 
 ## Key Learnings
