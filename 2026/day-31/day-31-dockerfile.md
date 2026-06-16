@@ -113,7 +113,18 @@ PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\dockerfile-demo>
   - `.git`
   - `*.md`
   - `.env`
+  - `ignore-me.txt`
 - Built the image and verified ignored files were not included in build context.
+
+` docker build --no-cache -t my-website:v1 .`   
+
+````
+PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\my-website> docker run --rm my-website:v1 sh -c "find /usr/share/nginx/html -name 'ignore-me.txt' -print | wc -l"                                    
+0
+PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\my-website> 
+
+````
+
 
 ## Task 6: Build Optimization
 
