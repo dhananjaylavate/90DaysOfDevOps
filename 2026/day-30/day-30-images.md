@@ -43,6 +43,31 @@ PS C:\Users\Snehal>
 ## Task 2: Image Layers
 
 - Command: `docker image history nginx`
+
+``````````
+PS C:\Users\Snehal> docker image history nginx
+IMAGE          CREATED      CREATED BY                                      SIZE      COMMENT
+608a100c7165   5 days ago   CMD ["nginx" "-g" "daemon off;"]                0B        buildkit.dockerfile.v0
+<missing>      5 days ago   STOPSIGNAL SIGQUIT                              0B        buildkit.dockerfile.v0
+<missing>      5 days ago   EXPOSE map[80/tcp:{}]                           0B        buildkit.dockerfile.v0
+<missing>      5 days ago   ENTRYPOINT ["/docker-entrypoint.sh"]            0B        buildkit.dockerfile.v0
+<missing>      5 days ago   COPY 30-tune-worker-processes.sh /docker-ent…   16.4kB    buildkit.dockerfile.v0
+<missing>      5 days ago   COPY 20-envsubst-on-templates.sh /docker-ent…   12.3kB    buildkit.dockerfile.v0
+<missing>      5 days ago   COPY 15-local-resolvers.envsh /docker-entryp…   12.3kB    buildkit.dockerfile.v0
+<missing>      5 days ago   COPY 10-listen-on-ipv6-by-default.sh /docker…   12.3kB    buildkit.dockerfile.v0
+<missing>      5 days ago   COPY docker-entrypoint.sh / # buildkit          8.19kB    buildkit.dockerfile.v0
+<missing>      5 days ago   RUN /bin/sh -c set -x     && groupadd --syst…   87.1MB    buildkit.dockerfile.v0
+<missing>      5 days ago   ENV DYNPKG_RELEASE=1~trixie                     0B        buildkit.dockerfile.v0
+<missing>      5 days ago   ENV PKG_RELEASE=1~trixie                        0B        buildkit.dockerfile.v0
+<missing>      5 days ago   ENV ACME_VERSION=0.4.1                          0B        buildkit.dockerfile.v0
+<missing>      5 days ago   ENV NJS_RELEASE=1~trixie                        0B        buildkit.dockerfile.v0
+<missing>      5 days ago   ENV NJS_VERSION=0.9.9                           0B        buildkit.dockerfile.v0
+<missing>      5 days ago   ENV NGINX_VERSION=1.31.1                        0B        buildkit.dockerfile.v0
+<missing>      5 days ago   LABEL maintainer=NGINX Docker Maintainers <d…   0B        buildkit.dockerfile.v0
+<missing>      6 days ago   # debian.sh --arch 'amd64' out/ 'trixie' '@1…   87.4MB    debuerreotype 0.17
+PS C:\Users\Snehal>
+`````````
+
 - Actual output summary:
   - The top layer is the `CMD ["nginx" "-g" "daemon off;"]` instruction and shows `0B`.
   - Several metadata layers such as `STOPSIGNAL SIGQUIT`, `EXPOSE 80`, `ENTRYPOINT`, and environment variable `ENV` lines also show `0B`.
