@@ -457,7 +457,9 @@ PS C:\Users\Snehal\devops\90DaysOfDevOps>
   - `docker rm $(docker ps -aq)`
 - Removed unused images:
   - `docker image prune -a`
-  - Confirmed prompt and removed dangling images
+- Removed unused images:
+  - `docker container prune`
+- Confirmed prompt and removed dangling images
   - Reclaimed `65.98MB` of disk space
 - Checked Docker disk usage:
   - `docker system df`

@@ -1,4 +1,4 @@
 FROM ubuntu:24.04
 
 # ENTRYPOINT version: executable is fixed, extra args are appended
-ENTRYPOINT ["echo"]
+ENTRYPOINT ["echo", "hello"]

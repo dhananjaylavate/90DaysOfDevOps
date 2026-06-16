@@ -72,15 +72,22 @@ PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\my-first-image>
   - `CMD` to print the copied file contents
 - Built the image:
   - `docker build -t dockerfile-demo:v1 .`
+  
 - Ran it:
   - `docker run --rm dockerfile-demo:v1`
 
+````
+PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\dockerfile-demo> docker run dockerfile-demo:latest
+Hello from the Dockerfile demo image!
+PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\dockerfile-demo> 
+
+````
 ## Task 3: CMD vs ENTRYPOINT
 
 - Created folder: `cmd-entrypoint`
 - `Dockerfile` with `CMD ["echo", "hello"]`:
   - Running `docker run --rm cmd-cmd:v1` prints `hello`.
-  - Running `docker run --rm cmd-cmd:v1 world` prints `world` because custom arguments override `CMD`.
+  - Running `docker run --rm cmd-cmd:v1 world` fails because the entire `CMD` is replaced with `["world"]`, and there is no `world` executable in the image.
 - `Dockerfile` with `ENTRYPOINT ["echo"]`:
   - Running `docker run --rm cmd-entrypoint:v1` prints nothing or just a blank line.
   - Running `docker run --rm cmd-entrypoint:v1 hello world` prints `hello world` because extra arguments are passed to `ENTRYPOINT`.

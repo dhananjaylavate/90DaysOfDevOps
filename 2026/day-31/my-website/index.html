@@ -1,11 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Docker Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhananjay Lavate - DevOps Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .profile-content {
+            padding: 40px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .about {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            line-height: 1.8;
+        }
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            background: #f8f9fa;
+        }
+        .experience-item h3, .education-item h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .job-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .date {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .contact-links a {
+            text-decoration: none;
+            color: white;
+            background: #667eea;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .contact-links a:hover {
+            background: #764ba2;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .badge-row img {
+            height: 46px;
+        }
+        .section-body {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+            margin-bottom: 30px;
+        }
+        .section-body strong {
+            color: #0f172a;
+        }
+        .list-group {
+            margin: 0 auto 30px;
+            max-width: 860px;
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #334155;
+        }
+        .list-group li {
+            margin-bottom: 12px;
+        }
+        .experience-list,
+        .education-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0 auto 30px;
+            max-width: 860px;
+            color: #334155;
+        }
+        .experience-list li,
+        .education-list li {
+            margin-bottom: 12px;
+            padding: 14px 18px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+        .experience-list b,
+        .education-list b {
+            color: #667eea;
+        }
+        @media (max-width: 680px) {
+            .container {
+                padding: 10px;
+            }
+            header {
+                padding: 32px 20px;
+            }
+            header h1 {
+                font-size: 2.2em;
+            }
+            .profile-content {
+                padding: 30px 20px;
+            }
+            .badge-row img {
+                height: 38px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello from my custom Nginx image!</h1>
-  <p>This page is served from <strong>my-website:v1</strong>.</p>
+    <!--
+    **DhananjayLavate/dhananjaylavate** is a ✨ _special_ ✨ repository because its README.md (this file) appears on your GitHub profile.
+    -->
+    <div class="container">
+        <header>
+            <h1>👋 Hello, I'm Dhananjay Lavate</h1>
+            <p>Senior QE & Automation Engineer | DevOps + SDET</p>
+            <div class="badge-row">
+                <img src="https://img.shields.io/badge/Software%20Development%20Engineer%20in%20Test-brightgreen.svg?&style=for-the-badge&logo=testing&logoColor=white" alt="SDET" />
+            </div>
+        </header>
+
+        <div class="profile-content">
+            <section class="section">
+                <h2>About</h2>
+                <div class="about">
+                    <p>Senior QE & Automation Engineer with over 7 years of experience specializing in high-scale automation for Web, API, and Mobile. Proven expertise in designing and scaling robust automation frameworks using Playwright and Cypress with JavaScript and Selenium and Rest-Assured with Java.</p>
+                    <p>Expert in architecting CI/CD pipelines (Jenkins, AWS) to support daily production releases, successfully managing 20+ regression suites and validating 1,000+ API endpoints within complex microservices architectures. Deep domain expertise across Logistics (UPS), Insurance, and Energy/Utilities (British Gas), including hands-on experience with backend systems like SAP, Salesforce, and Oracle. Results-driven, focused on reducing defects, mitigating flakiness, and accelerating releases through automation and mentorship.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>🔭 Tools & Technologies</h2>
+                <div class="badge-row">
+                    <img src="https://img.shields.io/badge/java-%23F7DF1C.svg?&style=for-the-badge&logo=java&logoColor=black" alt="Java" />
+                    <img src="https://img.shields.io/badge/selenium%20-%2328A3E2.svg?&style=for-the-badge&logo=selenium&logoColor=white" alt="Selenium" />
+                    <img src="https://img.shields.io/badge/cypress-%230173C2.svg?&style=for-the-badge&logo=cypress&logoColor=white" alt="Cypress" />
+                    <img src="https://img.shields.io/badge/playwright-%23000000.svg?&style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright" />
+                    <img src="https://img.shields.io/badge/testng%20-%2361DAFB.svg?&style=for-the-badge&logo=testng&logoColor=black" alt="TestNG" />
+                    <img src="https://img.shields.io/badge/python-%233B71FE.svg?&style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+                    <img src="https://img.shields.io/badge/mysql-%234479A1.svg?&style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+                    <img src="https://img.shields.io/badge/azure-%2306B8A6.svg?&style=for-the-badge&logo=azure&logoColor=white" alt="Azure" />
+                    <img src="https://img.shields.io/badge/docker-%232496ED.svg?&style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+                    <img src="https://img.shields.io/badge/jenkins-%23D24939.svg?&style=for-the-badge&logo=jenkins&logoColor=white" alt="Jenkins" />
+                    <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?&style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions" />
+                    <img src="https://img.shields.io/badge/kubernetes-%23326CE5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes" />
+                    <img src="https://img.shields.io/badge/terraform-%233276BE.svg?&style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform" />
+                    <img src="https://img.shields.io/badge/aws-%232F6EAA.svg?&style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS" />
+                    <img src="https://img.shields.io/badge/ansible-%23000000.svg?&style=for-the-badge&logo=ansible&logoColor=white" alt="Ansible" />
+                    <img src="https://img.shields.io/badge/rest%20api-%23F7DF1C.svg?&style=for-the-badge&logo=rest&logoColor=black" alt="REST API" />
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>✨ Key Achievements & Responsibilities</h2>
+                <ul class="list-group" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 1.6;">
+                    <li>Designed and built scalable automation frameworks from scratch across multiple stacks.</li>
+                    <li><strong>Selenium (Web):</strong> Java + BDD (Cucumber), TestNG, POM for modular and reusable design.</li>
+                    <li><strong>Playwright (Modern Web):</strong> High-performance JavaScript automation with BDD support.</li>
+                    <li><strong>API & Microservices:</strong> Rest-Assured + Postman to validate security, performance, and data integrity.</li>
+                    <li>Mobile testing on Android/iOS via BrowserStack.</li>
+                    <li>Leveraged Gen-AI & GitHub Copilot to speed test creation and increase coverage.</li>
+                    <li>Managed branching, PRs, and reviews with Git/GitHub.</li>
+                    <li>Implemented automated CI/CD pipelines using Jenkins, AWS & GitHub Actions.</li>
+                    <li>Integrated automation suites into CI for 20+ regression suites.</li>
+                    <li>Strong SQL, SAP, Salesforce knowledge for backend validations.</li>
+                    <li>Created Test Strategies & Plans aligned with SDLC/STLC in Agile environments.</li>
+                    <li>Worked with tools like JIRA and Azure DevOps.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>💼 Professional Experience</h2>
+                <ul class="experience-list">
+                    <li><strong>Senior QE / Automation Engineer</strong> – Cognizant Worldwide, London, UK | 02/2022 – Present</li>
+                    <li><strong>Automation Engineer</strong> – Cognizant Technology Solutions, Pune, India | 03/2018 – 01/2022</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>🎓 Education</h2>
+                <ul class="education-list">
+                    <li><strong>PG Diploma in Mobile Computing</strong> – CDAC Knowledge Park, Bangalore (2018)</li>
+                    <li><strong>Bachelor’s in E&TC Engineering</strong> – Pune University (2017)</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>💬 Connect With Me</h2>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/dhananjay-lavate/" target="_blank">LinkedIn Profile</a>
+                    <a href="mailto:dhananjaylavate929@gmail.com?subject=Hello%20Dhananjay,%20From%20Github">Email Me</a>
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Dhananjay Lavate. All rights reserved. | Built with Docker & Nginx</p>
+        </footer>
+    </div>
 </body>
 </html>
