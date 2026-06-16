@@ -62,7 +62,7 @@
 
 7. **Run a new Postgres container with the same name:**
    ```bash
-   docker run --name postgres-demo -e POSTGRES_PASSWORD=rootpass -d postgres:15
+   docker run --name postgres-demo -e POSTGRES_PASSWORD=rootpass -d postgres:latest
    ```
    **Explanation:** Starts a fresh container. This will create a brand new database with no data.
 
@@ -114,10 +114,10 @@ docker stop postgres-demo && docker rm postgres-demo
 
 4. **Run Postgres container WITH the volume:**
    ```bash
-   docker run --name postgres-persist -e POSTGRES_PASSWORD=rootpass -d -v postgres-data:/var/lib/postgresql/data postgres:15
+   docker run --name postgres-persist -e POSTGRES_PASSWORD=rootpass -d -v postgres-data:/var/lib/postgresql postgres:latest
    ```
    **Explanation:**
-   - `-v postgres-data:/var/lib/postgresql/data` → Mounts the named volume to Postgres's data directory
+   - `-v postgres-data:/var/lib/postgresql` → Mounts the named volume to Postgres's data directory
    - `/var/lib/postgresql/data` → This is where Postgres stores its databases
    - Everything Postgres writes goes to the volume on the host
 
@@ -237,6 +237,10 @@ docker volume rm postgres-data
 | **Use Case** | Persistent data (databases, applications) | Development (live editing) |
 | **Performance** | Better on Windows with Docker Desktop | Direct host filesystem access |
 | **Visibility** | Host path hidden from user | User manages the directory |
+
+### One-line difference:
+- Mount (bind) = your local folder
+- Volume = Docker-managed storage
 
 ### Cleanup:
 ```bash
