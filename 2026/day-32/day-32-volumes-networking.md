@@ -24,12 +24,17 @@
 
 3. **Create a database and add data:**
 
-   ````docker exec -it postgres-demo````
-    ````psql -U postgres```` 
-    ````CREATE DATABASE testdb;````
-    ````\c testdb;```` 
-    ````CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100));````
-    ````INSERT INTO users (name) VALUES ('Alice'), ('Bob'), ('Charlie');````
+````docker exec -it postgres-demo````
+
+````psql -U postgres```` 
+
+````CREATE DATABASE testdb;````
+
+````\c testdb;```` 
+
+````CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100));````
+
+````INSERT INTO users (name) VALUES ('Alice'), ('Bob'), ('Charlie');````
    
    **Explanation:**
    - `docker exec -it` → Execute command inside running container interactively
