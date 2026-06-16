@@ -8,7 +8,7 @@
 
 1. **Run a Postgres container without any volume:**
    ```bash
-   docker run --name postgres-demo -e POSTGRES_PASSWORD=rootpass -d postgres:15
+   docker run --name postgres-demo -e POSTGRES_PASSWORD=rootpass -d postgres:latest
    ```
    **Explanation:** 
    - `--name postgres-demo` → Gives the container a readable name
@@ -149,7 +149,7 @@ docker stop postgres-demo && docker rm postgres-demo
 
 10. **Run a NEW container with the SAME volume:**
     ```bash
-    docker run --name postgres-persist-new -e POSTGRES_PASSWORD=rootpass -d -v postgres-data:/var/lib/postgresql/data postgres:15
+    docker run --name postgres-persist-new -e POSTGRES_PASSWORD=rootpass -d -v postgres-data:/var/lib/postgresql/data postgres:latest
     ```
     **Explanation:** New container, same volume. The data should be there!
 
@@ -402,7 +402,7 @@ docker network rm my-app-net
 
 3. **Run Postgres database on custom network WITH volume:**
    ```bash
-   docker run --name postgres-app -d --network app-network -e POSTGRES_PASSWORD=apppass -v app-db-data:/var/lib/postgresql/data postgres:15
+   docker run --name postgres-app -d --network app-network -e POSTGRES_PASSWORD=apppass -v app-db-data:/var/lib/postgresql/data postgres:latest
    ```
    **Explanation:**
    - `--network app-network` → Connects to custom network for DNS resolution
