@@ -49,6 +49,8 @@ View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux
 - Ran the image to verify the message prints:
   - `docker run --rm my-ubuntu:v1`
 
+> Note: `--rm` removes the container automatically after it exits, so it does not remain stopped on your system.
+
 ````
 PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-31\my-first-image> docker run --rm my-ubuntu:v1  
 Hello from my custom image!
