@@ -14,7 +14,7 @@
    - `--name postgres-demo` → Gives the container a readable name
    - `-e POSTGRES_PASSWORD=rootpass` → Sets the password environment variable
    - `-d` → Runs container in detached mode (background)
-   - `postgres:15` → Uses PostgreSQL version 15 image
+   - `postgres:latest` → Uses PostgreSQL version latest image
 
 2. **Wait for Postgres to be ready (check logs):**
    ```bash
