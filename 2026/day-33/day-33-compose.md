@@ -66,8 +66,7 @@ Write a `docker-compose.yml` that runs:
 
 `docker-compose.yml`
 
-````
-
+``
 services:
 
     db:
@@ -109,9 +108,7 @@ services:
 volumes:
    db:
    wordpress:
-
-
-````
+``
 
 ### Task 5: Environment Variables
 
