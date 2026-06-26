@@ -1,0 +1,65 @@
+# Task 5: Explicit Named Networks
+
+networks:
+  backend_network:
+    driver: bridge
+
+volumes:
+  db_data:
+
+services:
+  db:
+    image: postgres:13-alpine
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    networks:
+      - backend_network
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    
+    #restart policy
+    restart: always
+
+    labels:
+     - "component=database"
+     - "environment=production"
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U node_admin -d node_prod_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  cache:
+    image: redis:7
+    container_name: cache
+    networks:
+      - backend_network
+    restart: on-failure
+    labels:
+      - "component=cache"
+    
+  app:
+    build: ./app
+    #container_name: web
+    ports:
+      - "5000:5000"
+    networks:
+      - backend_network
+    depends_on:
+      cache: 
+        condition: service_started
+      db:
+        condition: service_healthy
+    
+    labels:
+      - "component=frontend"
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+
