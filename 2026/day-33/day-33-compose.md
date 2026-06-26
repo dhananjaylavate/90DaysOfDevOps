@@ -33,9 +33,11 @@ services:
     ports:
       - "8080:80"
 
-`````
-Running the docker containers using compose file which has one container in it.
-`````
+````
+
+- Running the docker containers using compose file which has one container in it.
+
+````
 PS C:\Users\Snehal\devops\90DaysOfDevOps\2026\day-33\compose-basics> docker compose up -d
 [+] up 1/1
  ✔ Container compose-basics-nginxwebserver-1 Running 
@@ -66,7 +68,7 @@ Write a `docker-compose.yml` that runs:
 
 `docker-compose.yml`
 
-``
+````
 services:
 
     db:
@@ -108,7 +110,7 @@ services:
 volumes:
    db:
    wordpress:
-``
+````
 
 ### Task 5: Environment Variables
 
