@@ -1,0 +1,42 @@
+services:
+
+    db:
+      image: mysql:8.0
+      container_name: mysql_container
+      restart: always                                 # restart if the containers is crashes
+      
+      environment:
+        MYSQL_DATABASE: ${MYSQL_DATABASE}                         # name of the database
+        MYSQL_USER: ${MYSQL_USER}                        # sample is the name of user
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}                     # password for sample user
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}                # password for root user
+
+      ports:
+        - '3306:3306'                                # host port 3306 is mapper to docker port 3306\
+      
+      expose:
+       - '3306'
+      volumes:
+       - db:/var/lib/mysql
+
+
+    wordpress:
+      image: wordpress
+      container_name: wordpress_container
+
+      environment:
+        WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+        WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+        WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+        WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+
+      ports: 
+      - "8082:80"
+
+      volumes:
+        - wordpress:/var/www/html
+
+volumes:
+   db:
+   wordpress:
+
