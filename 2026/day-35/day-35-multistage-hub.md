@@ -32,9 +32,9 @@ my-react-app
 
 - Run as non-root user (best practice)
 
-     `RUN addgroup -S appgroup && adduser -S appuser -G appgroup`
+    -  `RUN addgroup -S appgroup && adduser -S appuser -G appgroup`
 
 
-     `U`SER appuser`
+    - `USER appuser`
 
 
