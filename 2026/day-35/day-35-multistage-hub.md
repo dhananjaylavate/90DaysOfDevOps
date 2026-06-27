@@ -1,18 +1,18 @@
-# created 3 apps for  practising the tasks from README.md
+### Created 3 apps for  practising the tasks from README.md
 
 # Task 1: The Problem with Large Images
 
-# app-single-stage
+app-single-stage
 
 - created a simple node js app and built it using Dockerfile node:20 image and verified the Image size
 
 # Task 2: Multi-Stage Build
 
-# app-multi-stage
+app-multi-stage
 
 - created a simple node js app and built it using Dockerfile node:20 image and verified the image size, could not see much difference as I copying the whole ./app to my image destination, for this app which is not recommended, hence created an my-react-app
 
-# my-react-app
+my-react-app
 
 - create a simple react js app and built it using Docker multi-stage file. 
 - In first stage build the app
@@ -28,7 +28,7 @@
 
 # Task 5: Image Best Practices
 
-# Run as non-root user (best practice)
+- Run as non-root user (best practice)
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
