@@ -22,8 +22,9 @@ my-react-app
 
 - Created an account on docker hub
 - At terminal `docker login` shows the username
-- `docker tag LOCAL_IMAGE_NAME DOCKERHUB_USERNAME/IMAGE_NAME:TAG`
-- `docker tag myreactapp:latest dhananjaylavate/myreactapp:v1`
+     `docker tag LOCAL_IMAGE_NAME DOCKERHUB_USERNAME/IMAGE_NAME:TAG`
+    
+    `docker tag myreactapp:latest dhananjaylavate/myreactapp:v1`
 
 
 ## Task 5: Image Best Practices
