@@ -50,41 +50,48 @@ jobs:
 
 GitHub Actions is a CI/CD tool that runs workflows automatically when certain events happen (like push, pull request, etc.).
 
-🔹 on:
+#### on:
+```
 on:
   push:
+
+```
 
 👉 This defines the trigger for the workflow.
 It means: Run this workflow every time code is pushed to the repository.
 
-🔹 jobs:
+#### jobs:
+```
 jobs:
   greet:
-
+```
 👉 A job is a group of steps that run together on the same machine.
 Here we have one job named greet.
 
-🔹 runs-on:
-runs-on: ubuntu-latest
+#### runs-on:
+
+`runs-on: ubuntu-latest`
 
 👉 This tells GitHub which operating system to use for running the job.
 Here we are using a Linux machine (Ubuntu).
 
-🔹 steps:
+#### steps:
 
 👉 Steps are individual tasks executed one by one inside a job.
 
-🔹 uses:
-uses: actions/checkout@v4
+#### uses:
+
+`uses: actions/checkout@v4`
 
 👉 This downloads your repository code into the runner machine so that workflows can access it.
 
-🔹 run:
-run: echo "Hello from GitHub Actions!"
+#### run:
+
+`run: echo "Hello from GitHub Actions!"`
 
 👉 This executes shell commands directly on the runner.
 
-🔹 name:
+#### name:
 
 👉 This gives a readable label to each step so it is easy to understand in GitHub Actions logs.
 
