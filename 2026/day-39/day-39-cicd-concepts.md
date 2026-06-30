@@ -234,18 +234,191 @@ Workflow inspected:
 ci.yml
 ```
 
-### What triggers it?
+---
 
-- Push events
-- Pull requests
+# Sample GitHub Actions Workflow (Example)
+
+The workflow below is a **sample** to help understand how a CI/CD pipeline is structured. It is **not intended for production use**, but it demonstrates common concepts like triggers, jobs, steps, and stages.
+
+```yaml
+name: CI/CD Pipeline Example
+
+# Trigger the workflow when code is pushed or a pull request is opened
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  # -------------------------
+  # Job 1 - Lint
+  # -------------------------
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Linter
+        run: npm run lint
+
+  # -------------------------
+  # Job 2 - Test
+  # -------------------------
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Unit Tests
+        run: npm test
+
+  # -------------------------
+  # Job 3 - Build
+  # -------------------------
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Build Docker Image
+        run: docker build -t my-app:latest .
+
+  # -------------------------
+  # Job 4 - Deploy
+  # -------------------------
+  deploy:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy Application
+        run: echo "Deploying application to staging server..."
+```
 
 ---
 
-### How many jobs does it have?
+# Understanding the Workflow
 
-It contains multiple jobs that run across different Python versions and operating systems.
+### Trigger
+
+The workflow starts automatically when:
+
+- Code is pushed to the `main` or `develop` branch.
+- A Pull Request is created targeting the `main` branch.
 
 ---
+
+### Job 1 – Lint
+
+Purpose:
+- Checks code formatting and coding standards.
+- Detects syntax errors and style issues before testing.
+
+Example command:
+
+```bash
+npm run lint
+```
+
+---
+
+### Job 2 – Test
+
+Purpose:
+- Runs automated unit tests.
+- Ensures new code doesn't break existing functionality.
+
+Example command:
+
+```bash
+npm test
+```
+
+This job runs **only after the lint job succeeds** because of:
+
+```yaml
+needs: lint
+```
+
+---
+
+### Job 3 – Build
+
+Purpose:
+- Compiles the application.
+- Creates a Docker image for deployment.
+
+Example commands:
+
+```bash
+npm run build
+docker build -t my-app:latest .
+```
+
+This job runs only if all tests pass.
+
+---
+
+### Job 4 – Deploy
+
+Purpose:
+- Deploys the successfully built application to a staging environment.
+- In real projects, this step may upload files, restart services, or deploy to cloud platforms like AWS, Azure, or Kubernetes.
+
+This job runs only after the build succeeds.
+
+---
+
+# Workflow Execution Order
+
+```text
+Push / Pull Request
+        │
+        ▼
+     Lint Job
+        │
+        ▼
+     Test Job
+        │
+        ▼
+    Build Job
+        │
+        ▼
+ Deploy to Staging
+```
+
+This order ensures that:
+1. Code quality is checked first (Lint).
+2. Automated tests validate functionality (Test).
+3. The application is compiled and packaged (Build).
+4. Only successful builds are deployed (Deploy).
 
 ### What does it do?
 
